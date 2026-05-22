@@ -12,7 +12,7 @@ body {
 }
 .anio {
   font-family: "brush script mt", cursive;
-  color: rgb(1, 1, 118);
+  color: rgb(0, 0, 2);
   font-weight: 400;
   font-size: 80px;
   transform: rotate(-5deg);
@@ -35,6 +35,7 @@ body {
 
 .object-fit-cover {
   object-fit: cover;
+  background-color: #ff8017;
 }
 
 .object-fit-none {
@@ -43,4 +44,28 @@ body {
 
 .object-fit-scale-down {
   object-fit: scale-down;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+   gap: 6px;
+}
+
+.admin-li{
+    padding-inline: 3;
+    padding-block: 2;
+    border-bottom: 6px solid transparent;
+}
+.admin-li:hover{
+  border-bottom: 6px solid #ff8017;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.admin-li-active{
+    border-bottom: 6px solid #ff8017;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }

@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MenuAdmin from "./MenuAdmin";
+import { useAuthStore } from "../store/useAuthStore";
 export default function Navbar() {
+
+  const isAuthenticated = useAuthStore((state)=> state.isAuthenticated);
+
   return (
+
+
     <>
       <header className="bg-[#edeeef] ">
         <nav className="flex items-end  h-25 gap-4 justify-around ">
@@ -20,12 +27,26 @@ export default function Navbar() {
             <li className="navbar-li">
               <Link to="/Historia">Historia</Link>
             </li>
-            <li className="navbar-li">Galería</li>
-            <li className="navbar-li">Novedades</li>
-            <li className="navbar-li">Contacto</li>
+
             <li className="navbar-li">
-              <Link to="/Login">Login</Link>
+              
+              <Link to={
+                "/Certificates"}>
+              Certificados
+              </Link>
+              </li>
+                          {isAuthenticated &&
+                          <>
+            <li className="navbar-li">
+
+              <Link to="/Admin">Admin</Link>
             </li>
+            
+            <li>
+              <MenuAdmin/>
+            </li>
+                          </>
+            }
           </ul>
         </nav>
       </header>
