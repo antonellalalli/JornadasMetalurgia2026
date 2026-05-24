@@ -116,7 +116,7 @@ setValue("presentation", null);
   return (
     <>
       <Navbar />
-      <div className="h-full px-4"> 
+      <div className="min-h-screen px-4"> 
         
         {success ?
         
@@ -136,27 +136,27 @@ setValue("presentation", null);
           </div>
         ) : (
           <>
-           <div className="m-auto mt-10 w-full md:w-220 text-center h-full ">
-          <span className="md:text-[24px] text-[15px] font-medium  m-auto  mb-5 text-center ">
+           <div className="m-auto mt-10 w-full xl:w-220 text-center h-full ">
+          <span className="xl:text-[24px] text-[15px] font-medium  m-auto  mb-5 text-center ">
             Para inscribirse a las jornadas de metalurgia, por favor complete el
             siguiente formulario con sus datos personales. Si desea presentar un
             trabajo, seleccione la opción correspondiente y complete los campos
             adicionales.
           </span>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-orange-400 w-full md:w-240 h-full  justify-start items-start  mt-10  text-center rounded-2xl m-auto mb-20 p wrap">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-orange-400 w-full xl:w-240 h-full  justify-start items-start  mt-10  text-center rounded-2xl m-auto mb-20 p wrap">
 
           <div className="flex flex-col gap-3 justify-start items-start m-auto ">
             <Check checkBoxes={checkBoxes} onChange={handleCheckboxChange} />
 
-            <div className="flex flex-col justify-start items-start gap-1 pl-2">
+            <div className="flex flex-col justify-start items-start w-full  gap-1 pl-2">
               <label
-                className=" text-dark text-[18px] md:text-[26px] font-bold  md:m-0"
+                className=" text-dark text-[18px] xl:text-[26px] font-bold  xl:m-0"
                 htmlFor="nombre">
                 Nombre y Apellido
               </label>
               <input
-                className={`${errors.studentName ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300  text-[16px] md:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-80 md:w-150 md:h-14 h-12 text-start `}
+                className={`${errors.studentName ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300  text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-full xl:w-150 xl:h-14 h-12 text-start `}
                 type="text" {...register("studentName")}
                 placeholder="Ingrese su nombre completo"
               />
@@ -165,41 +165,41 @@ setValue("presentation", null);
          )}
             </div>
 
-            <div className="flex flex-col justify-start items-start gap-1 pl-2">
+            <div className="flex flex-col justify-start items-start gap-1 pl-2 w-full">
               <label
-                className=" text-dark-500 font-bold text-[18px] md:m-0 md:text-[26px] "
+                className=" text-dark-500 font-bold text-[18px] xl:m-0 xl:text-[26px] "
                 htmlFor="email">
                 Email
               </label>
               <input
-                className={`${errors.studentEmail ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] md:text-2xl  focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-80 md:w-150 md:h-14 h-12 text-start `}
+                className={`${errors.studentEmail ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl  focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-full xl:w-150 xl:h-14 h-12 text-start `}
                 type="email" {...register("studentEmail")}
                 placeholder="Ingrese su email"
               />
               {errors.studentEmail && <span className="text-[20px] text-bold text-red-800">{errors.studentEmail.message}</span>}
             </div>
 
-           <div className="flex flex-col justify-start items-start gap-1 pl-2">
+           <div className="flex flex-col justify-start items-start gap-1 pl-2 w-full">
               <label
-                className=" text-dark-500 font-bold text-[18px]  md:ml-0 md:text-[26px] "
+                className=" text-dark-500 font-bold text-[18px]  xl:ml-0 xl:text-[26px] "
                 htmlFor="email">
                 DNI 
               </label>
               <input
-                className={`${errors.studentDni ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] md:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-80 h-12 md:w-150 md:h-14 text-start `}
+                className={`${errors.studentDni ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-full h-12 xl:w-150 xl:h-14 text-start `}
                 {...register("studentDni")}
                 placeholder="Ingrese su email"
               />
               {errors.studentDni && <span className="text-[20px] text-bold text-red-800">{errors.studentDni.message}</span>}
             </div>
-            <div className="flex flex-col justify-start items-start gap-1 pl-2 mb-2 ">
+            <div className="flex flex-col justify-start items-start gap-1 pl-2 mb-2 w-full ">
               <label
-                className=" text-dark-500  font-bold text-[18px] md:text-[26px] md:m-0 "
+                className=" text-dark-500  font-bold text-[18px] xl:text-[26px] xl:m-0 "
                 htmlFor="institucion">
                 Institucion
               </label>
               <input
-                className={`${errors.studentInstitution ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] md:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2  w-80 h-12 md:w-150 md:h-14 text-start `}
+                className={`${errors.studentInstitution ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2  w-full h-12 xl:w-150 xl:h-14 text-start `}
                 type="text" {...register("studentInstitution")}
                 placeholder="Ingrese su institución"
               />
@@ -207,28 +207,28 @@ setValue("presentation", null);
             </div>
             {checkBoxes.presentacion && (
               <>
-                <div className="flex flex-col justify-start items-start gap-1 pl-2">
+                <div className="flex flex-col justify-start items-start gap-1 pl-2 w-full">
                   <label
-                    className=" text-dark-500  font-bold text-[18px] md:text-[26px] md:ml-0 "
+                    className=" text-dark-500  font-bold text-[18px] xl:text-[26px] xl:ml-0 "
                     htmlFor="titulo">
                     Titulo del trabajo
                   </label>
                   <input
-                    className={`${errors.presentationTitle ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 md:w-150 md:h-14  w-80 h-12 text-start `}
+                    className={`${errors.presentationTitle ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 xl:w-150 xl:h-14  w-full h-12 text-start `}
                     type="text" {...register("presentationTitle")}
                     placeholder="Ingrese el titulo del trabajo"
                   />
                                    {errors.presentationTitle && <span className="text-[20px] text-bold text-red-800">{errors.presentationTitle.message}</span>}
                 </div>
 
-                <div className="flex flex-col justify-start items-start gap-1 pl-2">
+                <div className="flex flex-col justify-start items-start gap-1 pl-2 w-full">
                   <label
-                    className=" text-dark-500  font-bold text-[18px] md:text-[26px] md:ml-0"
+                    className=" text-dark-500  font-bold text-[18px] xl:text-[26px] xl:ml-0"
                     htmlFor="autores">
                     Autores
                   </label>
                   <input
-                    className={`${errors.participants ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] md:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-80  md:w-150 h-12 md:h-14 text-start `}
+                    className={`${errors.participants ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-full  xl:w-150 h-12 xl:h-14 text-start `}
                     type="text"{...register("participants")}
                     placeholder="Ingrese los autores del trabajo"
                   />
@@ -237,7 +237,7 @@ setValue("presentation", null);
 
                 <div className="flex flex-col justify-start items-start gap-1 pl-2 mb-5">
                   <div>
-                    <label className="font-medium mt-3 md:text-[20px] text-[12px] ">Solo se admiten archivos en formato PDF.</label>
+                    <label className="font-medium mt-3 xl:text-[20px] text-[12px] ">Solo se admiten archivos en formato PDF.</label>
                     <input
                       type="file"
                       accept=".pdf"
@@ -252,7 +252,7 @@ setValue("presentation", null);
                {errors.presentation && <span className="text-[20px] text-bold text-red-800">{errors.presentation.message}</span>}                        
                   </div>
                   <label
-                    className=" text-dark-500  font-medium text-[14px] md:text-[20px] block p-2 bg-white rounded-2xl cursor-pointer hover:bg-gray-200"
+                    className=" text-dark-500  font-medium text-[14px] xl:text-[20px] block p-2 bg-white rounded-2xl cursor-pointer hover:bg-gray-200"
                     htmlFor="work-file">
                     Subir archivo de trabajo
                   </label>
@@ -262,12 +262,12 @@ setValue("presentation", null);
                         <div
                           key={index}
                           className="flex flex-row gap-4 items-center justify-center ">
-                          <p className="md:text-[16px]  text-[14px] ml-4">{f.name}</p>
+                          <p className="xl:text-[16px]  text-[14px] ml-4">{f.name}</p>
                           <button
                             type="button"
                             onClick={() => handleRemoveFile(f)}>
                             <img
-                              className="md:w-8   md:h-8 w-6.5 h-6.5 mt-2 hover:bg-amber-700 rounded-full p-1 cursor-pointer "
+                              className="xl:w-8   xl:h-8 w-6.5 h-6.5 mt-2 hover:bg-amber-700 rounded-full p-1 cursor-pointer "
                               src="/cross.png"
                               alt="Eliminar Archivo"
                             />
@@ -282,7 +282,7 @@ setValue("presentation", null);
           </div>
           <button
             type="submit"
-            className=" text-white font-bold   text-[20px] md:text-[24px] rounded-2xl w-50 md:w-150 h-14 m-auto mt-3 mb-5 bg-orange-500 hover:bg-orange-600 focus:ring-orange-500 focus:ring-offset-2 cursor-pointer ">
+            className=" text-white font-bold   text-[20px] xl:text-[24px] rounded-2xl w-50 xl:w-150 h-14 m-auto mt-3 mb-5 bg-orange-500 hover:bg-orange-600 focus:ring-orange-500 focus:ring-offset-2 cursor-pointer ">
             {loading ? "INSCRIBIENDOSE..." : "INSCRIBIRSE"}
           </button>
           </form>

@@ -88,10 +88,11 @@ export default function AdminPopUp() {
                     <div className='fixed inset-0 bg-black/70 z-80 flex justify-center items-center'>
                         <button
                         onClick={handleCloseLogin}
-                        className="rounded w-10 h-10 bg-amber-300 absolute top-4 right-4"
-                        ><img className="m-auto w-8 h-8 cursor-pointer" src="cross.png" alt="" /></button>
-                        <div className=" cursor-pointer relative">
+                        className="rounded w-10 h-10 bg-amber-300 absolute top-4 right-4">
+                            <img className="m-auto w-8 h-8 cursor-pointer" src="cross.png" alt="" />
+                        </button>
 
+    <div className=" cursor-pointer relative">
                         
       <form onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col h-120 w-170 bg-gray-300 m-auto rounded-2xl mt-10 mb-10 justify-center items-center gap-6'

@@ -10,16 +10,16 @@ export default function History() {
       <div className="flex flex-col justify-start items-center p-4 min-h-screen ">
 
         <div>
-           <h1 className="mt-5 text-3xl md:text-5xl text-center font-bold  justify-center items-center 
+           <h1 className="mt-5 text-3xl xl:text-5xl text-center font-bold  justify-center items-center 
           m-auto tracking-wide text-orange-500">
             HISTORIA DE LAS JORNADAS DE METALURGIA
           </h1>
         </div>
 
-        <div className=" w-full md:w-auto h-full m-6 rounded-2xl p-4 text-[20px] md:text-[26px] text-start gap-10 flex flex-col ">
+        <div className=" w-full xl:w-auto h-full m-6 rounded-2xl p-4 text-[20px] xl:text-[26px] text-start gap-10 flex flex-col ">
           <div>
 
-          <h3 className=" text-[20px] md:text-[34px] font-semibold mb-2 ">Nuestra Trayectoria: Un punto de encuentro</h3>
+          <h3 className=" text-[20px] xl:text-[34px] font-semibold mb-2 ">Nuestra Trayectoria: Un punto de encuentro</h3>
           <p >
             Desde 2011, la Jornada de Metalurgia de la UTN Facultad Regional San
             Nicolás es el punto de encuentro de referencia para alumnos,
@@ -31,7 +31,7 @@ export default function History() {
           </p>
 
           </div>
-          <div className="flex md:flex-row flex-col items-center gap-5">
+          <div className="flex xl:flex-row flex-col items-center gap-5">
           <img src="DSC_4084.JPG" alt="Elena Brandaleze" className="w-60 h-60 mb-3 rounded-full shadow-2xl"/>
           <p>
             Impulsada por la Dra. Elena Brandaleze, Directora del Departamento
@@ -39,7 +39,7 @@ export default function History() {
             espacio de transferencia de las líneas de investigación de nuestros
             laboratorios, bajo un lema que sigue guiando cada encuentro: “Un
             espacio para el desarrollo de la ciencia, tecnología e innovación”.
-            Pero con el tiempo, se transformó en algo aún más valioso: un punto
+            Pero con el tiempo, se transformó en axlo aún más valioso: un punto
             de encuentro humano, cercano, donde las ideas circulan con libertad
             y el conocimiento se construye en comunidad.
           </p>
@@ -55,7 +55,7 @@ export default function History() {
           <div>
 
 
-           <p className=" text-[20px] md:text-[34px] font-semibold mb-2 ">El encuentro: Un eslabón entre el estudiante y la industria</p>
+           <p className=" text-[20px] xl:text-[34px] font-semibold mb-2 ">El encuentro: Un eslabón entre el estudiante y la industria</p>
           <p>
             Para nuestros estudiantes, la jornada es también una puerta abierta.
             Un lugar donde pueden ver, escuchar y vivir de cerca el camino de la
@@ -67,9 +67,9 @@ export default function History() {
           </div>
           <div className="flex flex-row items-center justify-center gap-10">
             <img className="img-student shadow-2xl" src="014.JPG" alt="Estudiantes" />
-            <img className="img-student shadow-2xl hidden md:flex" src="028.JPG" alt="Estudiantes" />
-            <img className="img-student shadow-2xl hidden md:flex" src="029.JPG" alt="Estudiantes" />
-            <img  className="img-student shadow-2xl hidden md:flex"src="031.JPG" alt="Estudiantes" />
+            <img className="img-student shadow-2xl hidden xl:flex" src="028.JPG" alt="Estudiantes" />
+            <img className="img-student shadow-2xl hidden xl:flex" src="029.JPG" alt="Estudiantes" />
+            <img  className="img-student shadow-2xl hidden xl:flex"src="031.JPG" alt="Estudiantes" />
           </div>
           <p>
             Cada edición es, además, una oportunidad para celebrar los logros de
@@ -88,7 +88,7 @@ export default function History() {
           <p>
             Hoy, más que nunca, esta jornada es un espacio que nos representa.
             Un lugar donde la ciencia se encuentra con las personas, y donde
-            siempre hay algo nuevo por descubrir, compartir y construir juntos.
+            siempre hay axlo nuevo por descubrir, compartir y construir juntos.
           </p>
         </div>
       </div>
