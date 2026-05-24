@@ -1,27 +1,32 @@
 export default function Check({ checkBoxes, onChange }) {
   return (
-    <div className="flex font-medium pl-2 text-[24px] gap-10 p-5 m-auto ">
-      <label>
+    <div className="flex  flex-row  font-medium items-center justify-center pl-2 text-[18px] md:text-[24px] gap-10 p-5 m-auto ">
+      <div className=" flex flex-row items-center justify-center gap-2">
+
         <input
-          className="mr-2 w-6 h-5"
+          className="ml-0   w-5 h-4 md:w-6 md:h-5"
           type="checkbox"
           name="asistencia"
           checked={checkBoxes.asistencia}
           onChange={onChange}
-        />
-        Asistencia
-      </label>
+          />
+          <span>
+          Asistencia
+        </span>
+      </div>
+<div className="flex flex-row items-center justify-center gap-2 ">
 
-      <label>
         <input
-          className="mr-2 w-6 h-5"
+          className="ml-0 w-5 h-4  md:w-6 md:h-5"
           type="checkbox"
           name="presentacion"
           checked={checkBoxes.presentacion}
           onChange={onChange}
-        />
-        Presentacion de trabajo
-      </label>
+          />
+          <span>
+        Presentacion
+      </span>
+</div>
     </div>
   );
 }

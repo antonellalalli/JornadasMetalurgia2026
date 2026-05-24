@@ -118,7 +118,7 @@ export default function AdminPopUp() {
          )}
           
         </div>
-        <button  disabled={loading} type="submit" className='bg-orange-500 text-white p-2 rounded-2xl w-100'>{loading ? "Ingresando" : "Ingresar"}</button>
+        <button  disabled={loading} type="submit" className='bg-orange-500 text-white p-2 rounded-2xl w-100'>{loading ? "Ingresando..." : "Ingresar"}</button>
 
       </form>
       </div>
