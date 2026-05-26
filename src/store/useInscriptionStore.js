@@ -9,31 +9,15 @@ loading:false,
 error:null,
 success:false,
 
-createOneInscription: async (payload) => {
+createOneInscription: async (formData) => {
     set({loading:true, error:null, success:false });
 
-    try{
-        const formData = new FormData();
+try{
 
-        Object.keys(payload).forEach((key) => {
-            if(payload[key] !== null && payload[key] !== undefined){
-                if(key === "Participants" && Array.isArray(payload[key])){
-                    payload[key].forEach((participant)=> {
-                        formData.append("Participants", participant);
-                    });
-                } else{
-                    formData.append(key, payload[key])
-                }
-            }
-        });
+    const result = await createInscription(formData);
 
-        const result = await createInscription(formData);
-
-        set({loading:false, success:true, error:null});
-        return result;
-
-
-
+    set({loading:false, success:true, error:null});
+    return result;
 
     } catch(error){
         const errorMessage = error.response?.data?.message || "Error al procesar inscripcion"
