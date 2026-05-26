@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import Check from "./Check";
 import { useState } from "react";
@@ -17,8 +17,18 @@ export default function Inscription() {
       });
 
       const createOneInscription = useInscriptionStore((state)=> state.createOneInscription);
-      const [success, setSuccess] = useState(false);
+      const success = useInscriptionStore((state)=> state.success)
       const loading = useInscriptionStore((state)=> state.loading)
+      const resetInscriptionState = useInscriptionStore((state) => state.resetInscriptionState)
+        useEffect(() => {
+            if (success){
+              reset();
+              setFile(null);
+              setIsChecked({asistencia:false, presentacion:false})
+              return ()=> resetInscriptionState();
+            }
+          }, [success, reset, resetInscriptionState])
+
       const onSubmit = async (data) =>{
 
         try {
@@ -44,17 +54,12 @@ export default function Inscription() {
           };
           await createOneInscription(payload);
           
-           reset();
-          setFile(null)
-          setIsChecked({asistencia:false, presentacion:false})
-          setSuccess(true)
-        } catch (error){
-          console.error("Error enviando inscripcion", error)
-        }
-
 
        
-      };
+        }
+      catch(error){
+        console.log("Error enviando inscripción", error)
+      }}
 
 
     
