@@ -15,7 +15,7 @@ export default function Navbar() {
           <div className=" flex  xl:mb-3  ">
             <Link to={"/"}>
             <img
-              className="h-15 w-50 xl:w-90 xl:h-16 "
+              className="h-15 w-50 xl:w-70 xl:h-15 "
               src="/logo.png"
               alt="Ingenieria Metalurgica"
             />
