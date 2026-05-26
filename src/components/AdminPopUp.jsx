@@ -35,7 +35,7 @@ export default function AdminPopUp() {
         } catch{
             setError("password", {
                 type: "manual",
-                message: errorApi || "Invalid email or password"
+                message: errorApi || "Email o contraseña inválidos"
             });
         }
     };
