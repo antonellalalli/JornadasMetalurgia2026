@@ -7,9 +7,10 @@ import { zodInscriptionSchema } from "../schema/zodInscriptionSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useInscriptionStore } from "../store/useInscriptionStore";
+import InscriptionSuccess from "./InscriptionSuccess";
 export default function Inscription() {
 
-      const {register, handleSubmit, reset, setValue, formState: {errors} } = useForm({resolver: zodResolver(zodInscriptionSchema), 
+      const {register, handleSubmit,reset, setValue, formState: {errors} } = useForm({resolver: zodResolver(zodInscriptionSchema), 
         defaultValues:{
           isExpositor: false
         }
@@ -44,7 +45,8 @@ export default function Inscription() {
           await createOneInscription(payload);
           
            reset();
-          setFile([])
+          setFile(null)
+          setIsChecked({asistencia:false, presentacion:false})
           setSuccess(true)
         } catch (error){
           console.error("Error enviando inscripcion", error)
@@ -61,16 +63,16 @@ export default function Inscription() {
     presentacion: false,
   });
 
-  const [file, setFile] = useState([]);
+  const [file, setFile] = useState(null);
 
-  const handleRemoveFile = (fileToRemove) => {
-    setFile(file.filter((f) => f.name !== fileToRemove.name));
+  const handleRemoveFile = () => {
+    setFile(null);
+    setValue("presentation", null, {shouldValidate:true});
     const inputFile = document.getElementById("work-file");
 
     if(inputFile) {
       inputFile.value = "";
     }
-setValue("presentation", null);
 
   };
 
@@ -78,11 +80,13 @@ setValue("presentation", null);
     event.preventDefault();
     const userfile = Array.from(event.target.files);
 
-    if (userfile.length > 0) {
+    if ( userfile && userfile.length > 0) {
       const files = userfile.filter((f) => f.type === "application/pdf");
 
       if (files.length > 0) {
-        setFile([...file, ...userfile]);
+        const file = files[0];
+        setFile(file);
+        setValue("presentation", [file], {shouldValidate:true} );
       } else alert("Por favor, seleccione un archivo PDF válido");
     }
   };
@@ -121,19 +125,8 @@ setValue("presentation", null);
         {success ?
         
         (
-          
-          <div className="m-auto mt-10 w-200 text-center h-full ">
-            <div className="flex flex-col justify-center items-center gap-4">
-          <span className="text-[34px]  font-semibold  ">
-            ¡Tu inscripción fue recibida con éxito!
-            </span>  
-            <img className="w-11 h-11" src="success.png" alt="Recibido" />
-            </div>
-            <p className="text-center font-medium mt-5">
-              Muchas gracias por sumarte a las Jornadas de Metalurgia 2026 y ser parte de esta nueva edición. Este espacio de encuentro y aprendizaje se construye entre todos. Es un gusto contar con tu presencia. Nos pondremos en contacto pronto para compartirte todos los detalles del cronograma.
-              ¡Nos vemos en agosto!
-            </p>
-          </div>
+          <InscriptionSuccess />  
+
         ) : (
           <>
            <div className="m-auto mt-10 w-full xl:w-220 text-center h-full ">
@@ -161,7 +154,7 @@ setValue("presentation", null);
                 placeholder="Ingrese su nombre completo"
               />
                {errors.studentName && (
-            <span className="text-[20px] text-bold text-red-800">{errors.studentName.message}</span>
+            <span className="text-[15px] text-bold text-red-800">{errors.studentName.message}</span>
          )}
             </div>
 
@@ -176,7 +169,7 @@ setValue("presentation", null);
                 type="email" {...register("studentEmail")}
                 placeholder="Ingrese su email"
               />
-              {errors.studentEmail && <span className="text-[20px] text-bold text-red-800">{errors.studentEmail.message}</span>}
+              {errors.studentEmail && <span className="text-[15px] text-bold text-red-800">{errors.studentEmail.message}</span>}
             </div>
 
            <div className="flex flex-col justify-start items-start gap-1 pl-2 w-full">
@@ -188,9 +181,9 @@ setValue("presentation", null);
               <input
                 className={`${errors.studentDni ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 w-full h-12 xl:w-150 xl:h-14 text-start `}
                 {...register("studentDni")}
-                placeholder="Ingrese su email"
+                placeholder="Ingrese su DNI"
               />
-              {errors.studentDni && <span className="text-[20px] text-bold text-red-800">{errors.studentDni.message}</span>}
+              {errors.studentDni && <span className="text-[15px] text-bold text-start text-red-800">{errors.studentDni.message}</span>}
             </div>
             <div className="flex flex-col justify-start items-start gap-1 pl-2 mb-2 w-full ">
               <label
@@ -203,7 +196,7 @@ setValue("presentation", null);
                 type="text" {...register("studentInstitution")}
                 placeholder="Ingrese su institución"
               />
-                 {errors.studentInstitution && <span className="text-[20px] text-bold text-red-800">{errors.studentInstitution.message}</span>}
+                 {errors.studentInstitution && <span className="text-[15px] text-bold text-red-800">{errors.studentInstitution.message}</span>}
             </div>
             {checkBoxes.presentacion && (
               <>
@@ -214,11 +207,11 @@ setValue("presentation", null);
                     Titulo del trabajo
                   </label>
                   <input
-                    className={`${errors.presentationTitle ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 xl:w-150 xl:h-14  w-full h-12 text-start `}
+                    className={`${errors.presentationTitle ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 xl:w-150 xl:h-14  w-full h-12 text-start `}
                     type="text" {...register("presentationTitle")}
                     placeholder="Ingrese el titulo del trabajo"
                   />
-                                   {errors.presentationTitle && <span className="text-[20px] text-bold text-red-800">{errors.presentationTitle.message}</span>}
+                                   {errors.presentationTitle && <span className="text-[15px] text-bold text-red-800">{errors.presentationTitle.message}</span>}
                 </div>
 
                 <div className="flex flex-col justify-start items-start gap-1 pl-2 w-full">
@@ -232,16 +225,16 @@ setValue("presentation", null);
                     type="text"{...register("participants")}
                     placeholder="Ingrese los autores del trabajo"
                   />
-               {errors.participants && <span className="text-[20px] text-bold text-red-800">{errors.participants.message}</span>}                
+               {errors.participants && <span className="text-[15px] text-bold text-red-800">{errors.participants.message}</span>}                
                 </div>
 
                 <div className="flex flex-col justify-start items-start gap-1 pl-2 mb-5">
                   <div>
-                    <label className="font-medium mt-3 xl:text-[20px] text-[12px] ">Solo se admiten archivos en formato PDF.</label>
+                    <span className="font-medium mt-3 xl:text-[20px] text-[12px] ">Solo se admiten archivos en formato PDF.</span>
                     <input
                       type="file"
                       accept=".pdf"
-                      multiple
+                      
                       id="work-file"
                       className={`${errors.presentation ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } hidden`}
                       {...register("presentation", {
@@ -249,32 +242,40 @@ setValue("presentation", null);
                       })}
                    
                     />
-               {errors.presentation && <span className="text-[20px] text-bold text-red-800">{errors.presentation.message}</span>}                        
+                      
                   </div>
+                  {file == null && (
+
+
                   <label
                     className=" text-dark-500  font-medium text-[14px] xl:text-[20px] block p-2 bg-white rounded-2xl cursor-pointer hover:bg-gray-200"
                     htmlFor="work-file">
                     Subir archivo de trabajo
                   </label>
-                  {file && file.length > 0 && (
-                    <div className="flex flex-col  items-start mt-2">
-                      {file.map((f, index) => (
+                  )}
+
+                  {errors.presentation && <span className="text-[15px] text-bold text-red-800">{errors.presentation.message}</span>}  
+
+                  {file != null && (
+                    <div className="flex flex-col  items-start  mt-2">
+                      <div className="flex flex-row gap-0 items-center">
+                      <img src="file.png" alt="Archivo" className="w-7 h-7"/>
                         <div
-                          key={index}
-                          className="flex flex-row gap-4 items-center justify-center ">
-                          <p className="xl:text-[16px]  text-[14px] ml-4">{f.name}</p>
+                        
+                          className="flex flex-row gap-4 items-center ">
+                          <p className="xl:text-[18px] text-[14px] ml-3">{file.name}</p>
                           <button
                             type="button"
-                            onClick={() => handleRemoveFile(f)}>
+                            onClick={() => handleRemoveFile()}>
                             <img
-                              className="xl:w-8   xl:h-8 w-6.5 h-6.5 mt-2 hover:bg-amber-700 rounded-full p-1 cursor-pointer "
+                              className="xl:w-7   xl:h-7 w-6.5 h-6.5  hover:bg-amber-700 rounded-full p-1 cursor-pointer "
                               src="/cross.png"
                               alt="Eliminar Archivo"
                             />
                           </button>
                         </div>
-                      ))}
                     </div>
+                      </div>
                   )}
                 </div>
               </>

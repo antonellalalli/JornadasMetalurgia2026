@@ -38,9 +38,12 @@ login: async (credentials) =>{
 
 
 logout : async ()=>{
+    
+    set({loading:true, error:null})
     try{
         await signOut();
-        set({loading:false, error:null, isAuthenticated:false, user:null })
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        set({error:null, isAuthenticated:false, user:null })
     }
     catch(error){
         console.log("Error logging out", error)

@@ -42,8 +42,7 @@ createOneInscription: async (payload) => {
     }
 
 }, 
-resetInscriptionState: () => set({error:null, success:false, loading:false})
-
+resetInscriptionState: () => set({error:null, success:false, loading:false}),
 
 
 

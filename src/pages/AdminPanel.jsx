@@ -3,23 +3,19 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useAdminStore } from '../store/useAdminStore'
 
+import { alertConfirm } from '../alerts/alert'
+import Searcher from '../components/Searcher'
+
 
 export default function AdminPanel() {
 
-const handleDownload = async (path, file) =>{
+const handleDownload = async (path) =>{
     try {
-        const fileUrl = `${import.meta.env.VITE_API_URL}/${path}`
-        const res = await fetch(fileUrl);
-        if(!res.ok) throw new Error("No se pudo descargar archivo");
-        const blob = await res.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = file  || "documento.pdf";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        window.URL.revokeObjectURL(url);
+        if(!path) return;
+        const secureUrl =path.replace("/upload/", "/upload/fl_attachment/")
+
+     window.open(secureUrl, "_blank")
+
     }
         catch (error){
             console.error("Error al descargar", error);
@@ -34,18 +30,21 @@ const handleDownload = async (path, file) =>{
     const inscriptions = useAdminStore((state)=> state.inscriptions)
    const loading = useAdminStore((state)=> state.loading)
  const deleteOneInscription = useAdminStore((state)=> state.deleteOneInscription)
+
     useEffect(() => {
-        fetchInscriptions(inscriptionTypeSelected)
-    }, [inscriptionTypeSelected,fetchInscriptions]);
+        fetchInscriptions(inscriptionTypeSelected, "")
+    }, []);
 
     
   return (
     <>
     <Navbar />
-    <div className='min-h-screen'>
-        <div className='m-auto mt-8 '>
+    <div className='min-h-screen pb-20 '>
+        <div className='m-auto mt-8 flex items-center flex-col gap-5 '>
     <h1 className='text-3xl font-semibold text-center'>Panel de Administrador</h1>
+            <Searcher/>
         </div>
+        
 
         <div>
             <ul className='text-2xl font-medium flex flex-row  gap-20 text-center mt-8 items-center justify-center text-[22px]'>
@@ -58,7 +57,7 @@ const handleDownload = async (path, file) =>{
 
         
 {/*Tabla*/ }
-<div className="relative mt-5 w-300 m-auto overflow-x-auto bg-gray-300 shadow-xs rounded-2xl  ">
+<div className="relative mt-5 w-300 m-auto overflow-x-auto overflow-y-auto bg-gray-300 shadow-xs rounded-2xl  ">
 
     {loading  ? 
     (<p className='m-auto text-2xl text-center p-4 '>Cargando datos de las Jornadas...</p>) : 
@@ -96,7 +95,7 @@ const handleDownload = async (path, file) =>{
 
                     </>  )}
                   <th className="px-6 py-4 text-right">
-                    <a href="#" className="font-medium text-fg-brand hover:underline">Accion</a>
+                    <a href="#" className="font-medium text-fg-brand ">Accion</a>
                 </th>
             </tr>
         </thead>
@@ -132,16 +131,16 @@ const handleDownload = async (path, file) =>{
                     <td className="px-6 py-4">
                         {inscription.presentation ? (
                             <button 
-                            onClick={()=> handleDownload(inscription.presentation, `Trabajo_${inscription.id}.pdf`)}
-                            target='blank'
+                            onClick={()=> handleDownload(inscription.presentation)}
+                        
                             className='inline-flex items-center '><img  className="w-6 h-6 cursor-pointer" src="download-pdf.png" alt="Descargar" /> </button> ) : (<span>-</span>)
                         }
                     </td>
                         </>)}
                         
                     <td >
-                        <button onClick={()=> {
-                            if( window.confirm("¿Desea desactivar esta inscripción? Se desactivará permanentemente")){deleteOneInscription(inscription.id)}
+                        <button onClick={async ()=> {
+                            if( await alertConfirm("Eliminar inscripción", "¿Desea desactivar esta inscripción? Se desactivará permanentemente.")){deleteOneInscription(inscription.id)}
                         }}>
                             <img src="bin.png" className='w-7 h-7 cursor-pointer' alt="Eliminar" />
                         </button> 

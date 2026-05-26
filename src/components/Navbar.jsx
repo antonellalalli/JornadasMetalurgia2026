@@ -7,11 +7,7 @@ import MenuHamburger from "./MenuHamburger";
 export default function Navbar() {
 
   const isAuthenticated = useAuthStore((state)=> state.isAuthenticated);
-
-
-
   return (
-
 
     <>
       <header className="bg-[#edeeef]  relative ">

@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { useAdminStore } from '../store/useAdminStore';
+import { alertConfirm } from '../alerts/alert';
 
 export default function MenuAdmin() {
-const { user, logout} = useAuthStore();
+const { user, logout, loading} = useAuthStore();
 const {updateUser} = useAdminStore();
 const navigate = useNavigate();
     const[isOpen, setIsOpen] = useState(false);
@@ -28,23 +29,31 @@ const navigate = useNavigate();
         <img className="w-10 h-10 cursor-pointer hover:ring-2  hover:ring-orange-500 rounded-full" src='profile.png' alt="user photo"/>
       </button>
         {isOpen && (
-      <div className="z-50 absolute right-0 mt-2 top-full bg-gray-300 border-2 rounded-2xl shadow-lg w-44" id="user-dropdown">
+      <div className="z-50 absolute right-0 mt-2 top-full bg-gray-300 border-2 rounded-2xl shadow-lg w-60" id="user-dropdown">
         <div className="px-4 py-3 text-sm border-b border-default">
-          <span className="block text-heading font-medium">{user?.Username || user?.userName || "Administrador"}</span>
+          <span className="block text-heading font-medium">Administrador</span>
           
           <span className="block text-body truncate">{user?.email || user?.Email || "Administrador - UTN"}</span>
         </div>
         <ul className="p-2 text-sm text-body font-medium" aria-labelledby="user-menu-button">
           <li>
+
             <button onClick={updateUser} className="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Cambiar Contraseña</button>
           </li>
           <li>
-            <button onClick={handleLogOut} className="inline-flex items-center w-full p-2 hover:bg-gray-400 cursor-pointer hover:text-heading rounded">Cerrar Sesión</button>
           </li>
+            <button onClick={ async () =>{ if(await alertConfirm("Cerrar Sesión", "¿Desea cerrar sesión?"))handleLogOut()} }className="inline-flex items-center w-full p-2 hover:bg-gray-400 cursor-pointer hover:text-heading rounded">Cerrar Sesión</button>
         </ul>
       </div>
         )}
       </div>
+      { loading && (<div className=' fixed inset-0 bg-black/70 z-80 flex justify-center items-center   '>
+              <div className='bg-gray-300  rounded w-90 h-30 flex items-center justify-center gap-4 flex-row '>
+                <div className='animate-spin rounded-full h-10 w-10 '><img src="loading.png" alt="Cargando" />
+                </div>
+                <h1 className='text-gray-500 text-center '>Cerrando sesión...</h1>
+              </div>
+             </div>)}
     
     
     

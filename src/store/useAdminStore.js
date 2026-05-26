@@ -11,8 +11,8 @@ export const useAdminStore = create((set, get)=> ({
     inscriptionTypeSelected: "Attendance",
     loading: false,
     error :null,
-
-    setInscriptionType : (type) => set({inscriptionTypeSelected: type}), 
+    searchQuery : "", 
+    setInscriptionType : (type) => set({inscriptionTypeSelected: type, loading:true, error:null}), 
     
     fetchUsers: async () => {
         set({ loading: true, error: null });
@@ -46,10 +46,14 @@ export const useAdminStore = create((set, get)=> ({
         }
     },
 
-    fetchInscriptions: async (type) => {
-        set ({ inscriptionTypeSelected: type, loading: true, error: null });
+    setSearchQuery : (query) => {
+        set({searchQuery: query, loading:true, error:null})
+    },
+
+    fetchInscriptions: async (type, query) => {
+        set ({  loading: true });
         try {
-            const inscriptionsFromApi = await getInscriptions(type);
+            const inscriptionsFromApi = await getInscriptions(type, query);
             set({ inscriptions: Array.isArray(inscriptionsFromApi) ? inscriptionsFromApi : [], loading: false });
 
             }
@@ -57,6 +61,8 @@ export const useAdminStore = create((set, get)=> ({
             set({ error: error.message, loading: false });
         }
     },
+
+
 
     deleteOneInscription : async (id) =>{
         set({loading: true, error: null})

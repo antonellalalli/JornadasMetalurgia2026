@@ -21,11 +21,16 @@ export const updateUser = async (id, formData )=>{
 
 }
 
-export const getInscriptions = async (type)=>{
-    const res = await api.get(`/JornadaMetalurgica/inscriptions?type=${type}`)
-    return res.data;
-}
- 
+
+export const getInscriptions= async (type, query) => {
+ const res = await api.get(`/JornadaMetalurgica/inscriptions`, {
+    params: {
+        type : type,
+        query: query,
+        isActive : true
+    }
+ })
+return res.data;}
 
 export const deleteInscription = async (id) => {
     await api.delete(`/JornadaMetalurgica/inscriptions/${id}`)

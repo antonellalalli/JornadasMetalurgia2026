@@ -7,11 +7,21 @@ import Certificates from "./pages/Certificates"
 import Gallery from "./pages/Gallery";
 import AdminPanel from "./pages/AdminPanel";
 import AdminPopUp from "./components/AdminPopUp";
+import PageLoader from "./components/PageLoader";
+import { Suspense, useEffect } from "react";
+import { useAuthStore } from "./store/useAuthStore";
 function App() {
+  const checkLoginStatus = useAuthStore((state)=> state.checkLoginStatus);
+
+  useEffect(()=>{
+    checkLoginStatus();
+  }, [checkLoginStatus])
   return (
     <>
       <Router>
         <AdminPopUp/>
+
+        <Suspense fallback={<PageLoader/>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Inscription" element={<Inscription />} />
@@ -20,6 +30,7 @@ function App() {
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/Admin" element={<AdminPanel />} />
         </Routes>
+        </Suspense>
       </Router>
     </>
   );

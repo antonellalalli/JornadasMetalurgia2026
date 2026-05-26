@@ -31,8 +31,8 @@ export default function History() {
           </p>
 
           </div>
-          <div className="flex xl:flex-row flex-col items-center gap-5">
-          <img src="DSC_4084.JPG" alt="Elena Brandaleze" className="w-60 h-60 mb-3 rounded-full shadow-2xl"/>
+          <div className="flex xl:flex-row flex-col items-center  xl:justify-center gap-5">
+          <img src="DSC_4084.JPG" alt="Elena Brandaleze" className="w-60 h-60 mb-5 xl:m-0 rounded-full shadow-2xl"/>
           <p>
             Impulsada por la Dra. Elena Brandaleze, Directora del Departamento
             de Metalurgia, esta jornada se pensó desde el primer momento como un

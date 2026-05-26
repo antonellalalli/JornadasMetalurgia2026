@@ -8,33 +8,35 @@ export default function Home() {
     <>
       <Navbar />
 
-      <div className=" bg-white h-full  mt-10 rounded-2xl flex flex-col justify-center items-center gap-10 p-6 ">
+      <div className=" bg-white h-full  mt-5 rounded-2xl flex flex-col justify-center items-center gap-10 p-4 ">
         <div className="flex flex-col xl:flex-row gap-10  ">
-          <div>
-            <div className=" flex gap-0 flex-col items-center justify-center leading-none">
-              <p className=" title text-4xl xl:text-7xl font-bold  mt-5 italic tracking-wide ">
+          
+          <div className="flex flex-col gap-0 items-center justify-center">
+            <div className=" flex  gap-0 flex-col items-center justify-center leading-none">
+              <p className=" title text-4xl xl:text-7xl font-bold   mt-5 italic tracking-wide ">
                 JORNADAS
               </p>
 
-              <div className="flex  gap-4  items-center mr-6">
-                <p className="title text-3xl xl:text-6xl flex justify-center  italic ">
+              <div className="flex  gap-4  items-center justify-center">
+                <p className="title text-4xl xl:text-6xl  font-bold flex justify-center  italic ">
                   DE
                 </p>
-
-                <p className="anio title text-3xl  font-bold  xl:text-7xl">
+                <p className=" text-[26px] flex anio   font-bold xl:text-7xl">
                   2026
                 </p>
+
               </div>
 
-              <h1 className="text-5xl xl:text-8xl font-extrabold flex justify-center  mb-5  tracking-wide text-orange-500 ">
+              <h1 className="text-[43px] xl:text-8xl font-extrabold mb-5  text-orange-500 ">
                 METALURGIA
               </h1>
             </div>
-          <div className="flex xl:flex-row gap-4 items-center justify-center">
-          <img className="xl:w-10 xl:h-10 w-8 h-8" src="/calendar.png" alt="Fecha" />
+          <div className="flex xl:flex-row gap-2 items-center justify-center">
+          <img className="xl:w-9 xl:h-9 w-6 h-6" src="/calendar.png" alt="Fecha" />
             <p className="xl:text-[25px]  text-[20px] mb-1 font-medium text-center ">
               20 y 21 de Agosto
             </p>
+
           </div>
           <div className="flex flex-row gap-1 xl:gap-4 items-start justify-center">
 
@@ -49,22 +51,19 @@ export default function Home() {
 
           <div className="flex xl:flex-row flex-col items-center gap-10 justify-center mt-8 mb-8">
 
-            <div className="flex flex-row items-center gap-4">
-
-            <div className="bg-black rounded-full w-12 h-12 text-white text-[18px] xl:text-[21px] text-center flex font-bold justify-center items-center">
-              <span> 7.a</span>
+            <div className="flex flex-row items-center  gap-4  ">
+            <div className="bg-black rounded-full 
+            w-9 h-9 text-[16px] xl:w-12 xl:h-12 text-white  xl:text-[21px]  flex font-bold justify-center items-center">
+              <span > 7.a</span>
             </div>
-            
-            <div className="flex justify-center items-center gap-1">
+            <div className="flex items-center gap-1">
               <p className="text-[20px] xl:text-[23px] font-semibold ">Jornadas de</p>
               <p className="text-[20px] xl:text-[23px]  text-amber-600 font-semibold ">Metalurgia</p>
             </div>
             </div>
+            <div className="flex flex-row items-center justify-center gap-4">
 
-
-            <div className="flex flex-row  gap-4">
-
-            <div className="bg-black rounded-full w-12 h-12 text-white text-[18px] xl:text-[21px] text-center flex font-bold justify-center items-center  flex-col xl:flex-row ">
+            <div className="bg-black rounded-full w-9 h-9 xl:w-12 xl:h-12 text-white text-[16px] xl:text-[21px] flex font-bold justify-center items-center  ">
               <span>6.a</span>
             </div>
              <div className="flex  items-center gap-1">
@@ -82,7 +81,7 @@ export default function Home() {
             </div>
               <div className="flex flex-col mt-12 justify-center  m-auto  items-center gap-4 ">
               <p className="xl:text-3xl text-2xl font-bold">¡Sumate a las jornadas!</p>
-              <button className="bg-[#ff8017] hover:bg-[#e67414] text-white font-bold py-2 px-4 rounded-xl w-full h-full xl:w-[400px] xl:h-[80px] text-2xl xl:text-3xl">
+              <button className="bg-[#ff8017] hover:bg-[#e67414] text-white font-bold py-2 px-4 rounded-xl w-full h-full xl:w-100 xl:h-20 text-2xl xl:text-3xl">
                 <Link to="/Inscription">INSCRIPCIÓN</Link>
               </button>
             </div>
@@ -92,7 +91,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 items-center justify-center">
             <div>
               <img
-                className=" w-full xl:w-[500px] rounded-xl h-auto object-cover shadow-2xs mb-8 shadow-black
+                className=" w-full xl:w-[500px] rounded-xl h-auto object-cover shadow-2xs mb-4 shadow-black
 "
                 src="Charla.jpeg"
                 alt="6ta Jornada Metalurgica"
@@ -139,16 +138,16 @@ export default function Home() {
                 </li>
                 <li className="item">
                   <img  className="w-10 h-10" src="/microchip.png" alt="" />
-                  <p className="axis-item mb-4">Otras tecnologías de procesamiento de materiales</p>
+                  <p className="axis-item ">Otras tecnologías de procesamiento de materiales</p>
                 </li>
               </ul>
             </div>
 
             </div>
-             <div className="flex  w-full flex-col gap-6  mt-3 items-center justify-center p-6  mb-3">
+             <div className="flex  w-full flex-col gap-6  mt-1 items-center justify-center p-6  mb-3">
 
                    <div className="flex flex-col items-center justify-center">
-                  <h1 className="xl:text-3xl text-2xl font-semibold ">Contactanos a</h1>
+                  <h1 className="xl:text-2xl text-2xl font-semibold ">Contactanos a</h1>
 
                     <div className="flex flex-row items-center justify-center gap-3">
 

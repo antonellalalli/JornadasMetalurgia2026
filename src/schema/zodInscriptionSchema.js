@@ -27,6 +27,15 @@ export const zodInscriptionSchema = z.object({
                 path:["presentation"],
             });
         }
+
+        if(data.participants == 0){
+            ctx.addIssue({
+                code:"custom",
+                message:"Los autores son obligatorios",
+                path:["participants"]
+            })
+        }
+
     }
 })
 
