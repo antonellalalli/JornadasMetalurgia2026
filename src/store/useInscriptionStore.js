@@ -18,8 +18,8 @@ createOneInscription: async (payload) => {
         Object.keys(payload).forEach((key) => {
             if(payload[key] !== null && payload[key] !== undefined){
                 if(key === "Participants" && Array.isArray(payload[key])){
-                    payload[key].forEach((participant)=> {
-                        formData.append("Participants", participant);
+                    payload[key].forEach((participant, index)=> {
+                        formData.append(`Participants[${index}]`, participant);
                     });
                 } else{
                     formData.append(key, payload[key])
