@@ -57,44 +57,44 @@ const handleDownload = async (path) =>{
 
         
 {/*Tabla*/ }
-<div className="relative mt-5 w-300 m-auto overflow-x-auto overflow-y-auto bg-gray-300 shadow-xs rounded-2xl  ">
+<div className="relative mt-5 w-300 m-auto overflow-x-auto overflow-y-auto max-h-[65vh] shadow-xs rounded-2xl  ">
 
     {loading  ? 
     (<p className='m-auto text-2xl text-center p-4 '>Cargando datos de las Jornadas...</p>) : 
     (
     <table className="w-full text-sm text-center rtl:text-right text-body">
-        <thead className="text-sm border-b border-default-medium">
+        <thead className=" sticky top-0 z-10 text-sm">
             <tr>
-                <th scope="col" className="px-6 py-3 font-medium">
+                <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     ID
                 </th>
-                <th scope="col" className="px-6 py-3 font-medium">
+                <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     Nombre del Estudiante
                 </th>
-                <th scope="col" className="px-6 py-3 font-medium">
+                <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     Email del Estudiante
                 </th>
-                <th scope="col" className="px-6 py-3 font-medium">
+                <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     DNI del Estudiante
                 </th>
-                <th scope="col" className="px-6 py-3 font-medium">
+                <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     Institución
                 </th>
 
                 {inscriptionTypeSelected == "Presentation" && (
                     <>
-                     <th scope="col" className="px-6 py-3 font-medium">
+                     <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     Nombre del Trabajo
                     </th>
-                     <th scope="col" className="px-6 py-3 font-medium">
+                     <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     Autores
                     </th>           
-                     <th scope="col" className="px-6 py-3 font-medium">
+                     <th scope="col" className="px-6 py-3 bg-gray-300 border-b font-medium">
                     Trabajo
                     </th>                            
 
                     </>  )}
-                  <th className="px-6 py-4 text-right">
+                  <th className="px-6 py-4 text-right border-b bg-gray-300">
                     <a href="#" className="font-medium text-fg-brand ">Accion</a>
                 </th>
             </tr>

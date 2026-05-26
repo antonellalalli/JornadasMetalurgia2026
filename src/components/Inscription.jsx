@@ -204,12 +204,12 @@ export default function Inscription() {
                   <label
                     className=" text-dark-500  font-bold text-[18px] xl:text-[26px] xl:ml-0 "
                     htmlFor="titulo">
-                    Titulo del trabajo
+                    Título del trabajo
                   </label>
                   <input
                     className={`${errors.presentationTitle ? "border-red-500 focus:ring-red-500" : "border-white/10 focus:ring-amber-600" } bg-white rounded-2xl border border-gray-300 text-[16px] xl:text-2xl focus:outline-none focus:ring-2 focus:ring-dark-500 pl-2 xl:w-150 xl:h-14  w-full h-12 text-start `}
                     type="text" {...register("presentationTitle")}
-                    placeholder="Ingrese el titulo del trabajo"
+                    placeholder="Ingrese el título del trabajo"
                   />
                                    {errors.presentationTitle && <span className="text-[15px] text-bold text-red-800">{errors.presentationTitle.message}</span>}
                 </div>

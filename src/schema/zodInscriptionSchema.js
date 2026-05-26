@@ -4,7 +4,7 @@ import {z} from 'zod';
 export const zodInscriptionSchema = z.object({
     studentName :z.string().min(2, "Campo obligatorio"),
     studentEmail: z.string().email("Email inválido"),
-    studentDni : z.string().min(8, "El dni debe tener al menos 8 carácteres"),
+    studentDni : z.string().min(7, "El dni debe tener al menos 8 carácteres").max(13, "El dni debe tener máximo 13 números").regex(/^[0-9]+$/),
     studentInstitution: z.string().min(2, "Campo obligatorio"),
 
     isExpositor : z.boolean(),
