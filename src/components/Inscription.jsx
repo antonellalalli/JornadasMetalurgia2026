@@ -22,29 +22,27 @@ export default function Inscription() {
       const onSubmit = async (data) =>{
 
         try {
-          const formData = new FormData();
-          formData.append("StudentName",data.studentName );
-          formData.append("StudentEmail", data.studentEmail);
-          formData.append("StudentDni", parseInt(data.studentDni));
-          formData.append("StudentInstitution", data.studentInstitution);
-          formData.append("InscriptionType",  data.isExpositor ? "Presentation" : "Attendance");
-          if(data.isExpositor){
-            formData.append("PresentationTitle", data.presentationTitle || "");
-
-            let participantsArray = data.participants ?
-       
-            data.participants.split(",").map(p=> p.trim()).filter(p=> p!== "") : [];
-
-            participantsArray.forEach((p, index) => {
-              formData.append(`Participants[${index}]`, p)
-            });
-            if (data.presentation?.[0]){
-              formData.append("Presentation", data.presentation[0])
-            }
+          let participantsArray = null;
+          if(data.isExpositor && data.participants) {
+            participantsArray = data.participants.split(",").map(p=> p.trim()).filter(p=> p!== "");
           }
-          
 
-          await createOneInscription(formData);
+          const payload = {
+
+            StudentName:data.studentName,
+            StudentEmail:data.studentEmail,
+            StudentDni:parseInt(data.studentDni),
+            StudentInstitution:data.studentInstitution,
+
+            InscriptionType : data.isExpositor ? "Presentation" : "Attendance",
+
+            PresentationTitle : data.isExpositor ? data.presentationTitle : null,
+            Participants :participantsArray,
+
+            Presentation: data.isExpositor && data.presentation?.[0] ? data.presentation[0]: null
+
+          };
+          await createOneInscription(payload);
           
            reset();
           setFile(null)
