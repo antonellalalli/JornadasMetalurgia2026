@@ -74,7 +74,7 @@ export default function Home() {
           </div>
             <div className="w-full max-w-3xl">
 
-            <p className="xl:text-[20px] text-[15px] xl:text-start text-center"> Las 7mas Jornadas de Metalurgia y 6tas Jornadas de Doctorandos, que se llevarán a cabo en la UTN Facultad Regional San Nicolás, constituyen un espacio de encuentro e intercambio entre estudiantes, docentes, investigadores y profesionales de la industria metalúrgica. A través de charlas, presentaciones y actividades académicas, estas jornadas buscan promover la difusión de conocimientos, el intercambio de experiencias y la vinculación entre la universidad y el sector industrial. Se invita a toda la comunidad vinculada a la ingeniería metalúrgica a participar de este evento y formar parte de un encuentro pensado para el aprendizaje, la innovación y el crecimiento profesional.
+            <p className="xl:text-[20px] text-[15px] xl:text-start text-center"> Las 7ma Jornada de Metalurgia y 6ta Jornada de Doctorandos, que se llevarán a cabo en la UTN Facultad Regional San Nicolás, constituyen un espacio de encuentro e intercambio entre estudiantes, docentes, investigadores y profesionales de la industria metalúrgica. A través de charlas, presentaciones y actividades académicas, estas jornadas buscan promover la difusión de conocimientos, el intercambio de experiencias y la vinculación entre la universidad y el sector industrial. Se invita a toda la comunidad vinculada a la ingeniería metalúrgica a participar de este evento y formar parte de un encuentro pensado para el aprendizaje, la innovación y el crecimiento profesional.
 
             </p>
 

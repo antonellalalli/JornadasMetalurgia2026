@@ -39,7 +39,7 @@ export default function History() {
             espacio de transferencia de las líneas de investigación de nuestros
             laboratorios, bajo un lema que sigue guiando cada encuentro: “Un
             espacio para el desarrollo de la ciencia, tecnología e innovación”.
-            Pero con el tiempo, se transformó en axlo aún más valioso: un punto
+            Pero con el tiempo, se transformó en algo aún más valioso: un punto
             de encuentro humano, cercano, donde las ideas circulan con libertad
             y el conocimiento se construye en comunidad.
           </p>
