@@ -88,7 +88,7 @@ export default function History() {
           <p>
             Hoy, más que nunca, esta jornada es un espacio que nos representa.
             Un lugar donde la ciencia se encuentra con las personas, y donde
-            siempre hay axlo nuevo por descubrir, compartir y construir juntos.
+            siempre hay algo nuevo por descubrir, compartir y construir juntos.
           </p>
         </div>
       </div>
