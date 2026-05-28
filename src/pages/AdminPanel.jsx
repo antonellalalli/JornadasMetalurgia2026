@@ -50,7 +50,7 @@ const handleDownload = async (path) =>{
             <ul className='text-2xl font-medium flex flex-row  gap-20 text-center mt-8 items-center justify-center text-[22px]'>
                 <li onClick={()=> setInscriptionType("Attendance")} className={ `admin-li ${inscriptionTypeSelected == "Attendance" ? "admin-li-active" : ""}`}>Inscripciones Asistencia</li>
 
-                <li onClick={()=>setInscriptionType("Presentation")} className={`admin-li ${inscriptionTypeSelected == "Presentation" ? "admin-li-active" : ""}`}>Inscripciones Presentacion</li>
+                <li onClick={()=>setInscriptionType("Presentation")} className={`admin-li ${inscriptionTypeSelected == "Presentation" ? "admin-li-active" : ""}`}>Inscripciones Presentación</li>
 
             </ul>
         </div>
