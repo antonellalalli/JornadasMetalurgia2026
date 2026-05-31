@@ -289,7 +289,7 @@ export default function Inscription() {
           <button
             type="submit"
             disabled={loading}
-            className=" text-white font-bold   text-[20px] xl:text-[24px] rounded-2xl w-50 xl:w-150 h-14 m-auto mt-3 mb-5 bg-orange-500 hover:bg-orange-600 focus:ring-orange-500 focus:ring-offset-2 cursor-pointer disbled:cursor-default">
+            className=" text-white font-bold   text-[20px] xl:text-[24px] rounded-2xl w-50 xl:w-150 h-14 m-auto mt-3 mb-5 bg-orange-500 hover:bg-orange-600 focus:ring-orange-500 focus:ring-offset-2 cursor-pointer disabled:bg-gray-400 disabled:cursor-default">
             {loading ? "INSCRIBIENDOSE..." : "INSCRIBIRSE"}
           </button>
           </form>
