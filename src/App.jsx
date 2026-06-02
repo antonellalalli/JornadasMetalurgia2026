@@ -10,6 +10,7 @@ import AdminPopUp from "./components/AdminPopUp";
 import PageLoader from "./components/PageLoader";
 import { Suspense, useEffect } from "react";
 import { useAuthStore } from "./store/useAuthStore";
+import Information from "./pages/Information";
 function App() {
   const checkLoginStatus = useAuthStore((state)=> state.checkLoginStatus);
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Inscription" element={<Inscription />} />
           <Route path="/History" element={<History />} />
+          <Route path="/Information" element={<Information/>}></Route>
           <Route path="/Certificates" element={<Certificates/>}></Route>
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/Admin" element={<AdminPanel />} />

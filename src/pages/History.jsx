@@ -7,7 +7,7 @@ export default function History() {
     <>
       <Navbar />
 
-      <div className="flex flex-col justify-start items-center p-4 min-h-screen ">
+      <div className="flex flex-col justify-start items-center p-4 min-h-screen lg:m-auto">
 
         <div>
            <h1 className="mt-5 text-3xl xl:text-5xl text-center font-bold  justify-center items-center 

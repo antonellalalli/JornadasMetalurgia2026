@@ -30,9 +30,12 @@ export default function Navbar() {
              <Link to="/">Inicio</Link>
             </li>
             <li className="navbar-li">
+              <Link to="/Information" >Información</Link>
+
+            </li>
+            <li className="navbar-li">
               <Link to="/History">Historia</Link>
             </li>
-
             <li className="navbar-li">
               <Link to={ "/Certificates"}>
               Certificados
