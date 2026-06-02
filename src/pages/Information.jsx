@@ -16,7 +16,7 @@ export default function Information() {
           </p>
           <div className="flex items-center gap-2 m-5">
             <img src="file-word.png" alt="Primera Circular" className="w-6 h-6" />
-            <a href="JornadasMetalurgiaFlyer.jfif" download="Jornadas de Metalurgia 2026" className=" hover:text-blue-950 font-medium" >Circular: Jornadas de Metalurgia 2026</a>
+            <a href="JornadasMetalurgia.jpeg" download="Jornadas de Metalurgia 2026" className=" hover:text-blue-950 font-medium" >Circular: Jornadas de Metalurgia 2026</a>
           </div>
 
         </div>
