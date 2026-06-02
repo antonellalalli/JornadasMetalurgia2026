@@ -27,6 +27,9 @@ export default function MenuHamburger() {
 
           <Link to={"/"} className="inline-flex items-center w-full p-2 hover:bg-gray-500 hover:text-heading rounded">Inicio</Link>
           </li>
+          <li className="h-12 text-[20px]">
+           <Link to={"/Information"} onClick={handleMenuChange} className="inline-flex items-center w-full p-2 hover:bg-gray-500 hover:text-heading rounded cursor-pointer"></Link>
+          </li>
           <li className='h-12 text-[20px]'>
             <Link to={"/History"} onClick={handleMenuChange} className="inline-flex items-center w-full p-2 hover:bg-gray-500 cursor-pointer hover:text-heading rounded">Historia</Link>
           </li>
