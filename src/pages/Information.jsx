@@ -20,6 +20,23 @@ export default function Information() {
           </div>
 
         </div>
+                <div className="bg-amber-500 w-full  lg:w-[950px] h-full m-auto mt-10 rounded-2xl">
+       
+          
+          <h1 className="text-[27px] text-start m-5  mb-2 font-semibold "> 
+            Programa de actividades - Jornadas de Metalurgia 2026
+          </h1>
+          <p className= "text-start font-medium m-5  mt-2 mb-2">¡El programa de actividades que se desarrollarán durante las Jornadas de Metalurgia 2026 ya está disponible para ser descargado!
+          </p>
+
+          <div className= "flex items-center gap-2  m-5">
+          <img src="file-word.png" alt="Modelo de Presentación"  className=" w-6 h-6 "/>
+          <a  className=" font-medium hover:text-blue-950" href="Programa_Jornadas_de_Metalurgia_2026.pdf" download="Programa de Actividades 2026">Programa 2026</a>
+
+          </div>
+  
+        </div>
+
         
         <div className="bg-amber-500 w-full  lg:w-[950px] h-full m-auto mt-10 rounded-2xl">
        
