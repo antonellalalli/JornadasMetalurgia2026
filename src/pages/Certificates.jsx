@@ -13,12 +13,14 @@ export default function Certificates() {
         hover:scale-105 transition-transform duration-300'>
           <div className='flex flex-col items-center justify-center ml-6 mr-6 '>
 
-            <h1 className='font-bold text-[18px] xl:text-4xl text-center mt-10'>¡Los certificados todavía no están disponibles!</h1>
+            <h1 className='font-bold text-[18px] xl:text-4xl text-center mt-10'>¡Los certificados ya estan disponibles!</h1>
             <p className='mt-5 text-center text-[14px] xl:text-[20px] font-semibold mb-5'>
-                ¡Para obtener un certificado, es necesario inscribirse y asistir a las jornadas!</p>
-                <p className='font-semibold text-[14px] text-center xl:text-[20px] mb-3'>¡Podes sumarte a traves de esta inscripción!</p>
+                ¡Muchas gracias por formar parte de las Jornadas de Metalurgia 2026!
+              
+                <p>¡Nos vemos el próximo</p>
+                </p>
                           <button className="bg-[#ff8017] hover:bg-[#e67414] text-white font-bold py-2 px-4 w-60 h-15 rounded-xl xl:w-100 xl:h-20 mb-6">
-                <Link to="/Inscription" className='xl:text-[30px] text-[22px] '>INSCRIPCIÓN</Link>
+                <a href="https://drive.google.com/drive/folders/1o05DQ1_enuVQMQxZ3qm-blRl5wNRjwq8?usp=sharing" className='xl:text-[28px] text-[16px] '>DESCARGAR CERTIFICADO</a>
               </button>
           </div>
         </div>

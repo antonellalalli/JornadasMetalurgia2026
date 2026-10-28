@@ -80,9 +80,9 @@ export default function Home() {
 
             </div>
               <div className="flex flex-col mt-12 justify-center  m-auto  items-center gap-4 ">
-              <p className="xl:text-3xl text-2xl font-bold">¡Sumate a las jornadas!</p>
+              <p className="xl:text-3xl text-2xl font-bold">¿Fuiste parte de las jornadas?</p>
               <button className="bg-[#ff8017] hover:bg-[#e67414] text-white font-bold py-2 px-4 rounded-xl w-full h-full xl:w-100 xl:h-20 text-2xl xl:text-3xl">
-                <Link to="/Inscription">INSCRIPCIÓN</Link>
+                <Link to="/Certificates">Quiero mi certificado</Link>
               </button>
             </div>
 
